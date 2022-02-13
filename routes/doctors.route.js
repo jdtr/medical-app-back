@@ -25,7 +25,11 @@ router.post('/',
     createDoctor
 );
 router.put('/:id', 
-    [],
+    [
+        validJWT,
+        check('name', 'Name is required').not().isEmpty(),
+        validFields
+    ],
     updateDoctor
 );
 router.delete('/:id', validJWT, deleteDoctor);

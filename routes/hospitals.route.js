@@ -26,7 +26,11 @@ router.post('/',
     createHospital
 );
 router.put('/:id', 
-    [],
+    [
+        validJWT,
+        check('name', 'Name is required').not().isEmpty(),
+        validFields
+    ],
     updateHospital
 );
 router.delete('/:id', validJWT, deleteHospital);
