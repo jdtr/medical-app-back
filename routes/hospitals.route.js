@@ -20,7 +20,7 @@ router.post('/',
     [
         validJWT,
         check('name', 'Name is required').not().isEmpty(),
-        check('hospital', 'Hospital is required').isMongoId(),//Valid taht ID exist in Mongo
+        //check('hospital', 'Hospital is required').isMongoId(),//Valid taht ID exist in Mongo
         validFields
     ],
     createHospital

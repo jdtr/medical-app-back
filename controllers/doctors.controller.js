@@ -12,6 +12,26 @@ const getDoctors = async (req, res = response) => {
         doctors: doctorsDB
     })
 }
+
+const getDoctorById = async (req, res = response) => {
+    const id = req.params.id;
+
+    try {
+        const doctor = await Doctor.findById(id)
+            .populate('user','name img')
+            .populate('hospital', 'name img') 
+
+        res.json({
+            ok: true,
+            doctor
+        })   
+    } catch (error) {
+        res.json({
+            ok: true,
+            msg: 'Doctor not found'
+        })
+    }
+}
 const createDoctor = async (req, res = response) => {
     const uid = req.uid;
     const doctorModel = new Doctor({
