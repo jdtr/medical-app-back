@@ -116,5 +116,6 @@ module.exports = {
     getDoctors,
     createDoctor,
     updateDoctor,
-    deleteDoctor
+    deleteDoctor,
+    getDoctorById
 }
